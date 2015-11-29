@@ -2,35 +2,45 @@
 <html>
   <head>
     <title>Homepage</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/default.css">
     <meta charset="UTF-8">
   </head>
   <body>
     <nav>
-      <h2>David Spivey</h2>
       <ul>
-      <li><a href="#">About</a></li>
-      <li><a href="blog/index.html">Blog</a></li>
-      <li><a href="#">Projects</a></li>
-      <li><a href="#">Contact</a></li>
+        <li class="name">David Spivey</li>
+        <li class="navigation"><a href="#">About</a></li>
+        <li class="navigation"><a href="blog/index.html">Blog</a></li>
+        <li class="navigation"><a href="#">Projects</a></li>
+        <li class="navigation"><a href="#">Contact</a></li>
       </ul>
     </nav>
-    <div>
-      <a href="#"><img src="imgs/Historic-WTF-4.jpg" alt="Historic photo of child smoking with chicken"></a>
+    <div id="wrapper">
+      <div id="profile">
+       <a href="#"><img src="imgs/Historic-WTF-4.jpg" alt="Historic photo of child smoking with chicken"></a>
+      </div>
+      <section id="headlines">
+       <h2>This site is going places</h2>
+        <p>Four dollar toast shabby chic chicharrones keffiyeh cliche vice XOXO, thundercats cold-pressed. Lo-fi post-ironic banh mi, you probably haven't heard of them schlitz umami everyday carry squid bicycle rights offal chia banjo. Portland trust fund neutra fixie, asymmetrical poutine etsy tacos pitchfork. Literally blog post-ironic microdosing, bespoke synth selfies cronut shabby chic chia twee truffaut photo booth cliche four dollar toast. Taxidermy austin marfa chicharrones polaroid occupy. Church-key tumblr hashtag, asymmetrical cold-pressed pabst beard gluten-free semiotics kale chips chartreuse. Four dollar toast flannel pabst ennui typewriter, blog venmo migas.</p>
+      </section>
+      <div class="main-content">
+        <main id="page-body">
+          <h3>Whoa look a whole nother section</h3>
+          <p>Slow-carb blue bottle DIY gentrify. Taxidermy normcore bicycle rights cornhole. Humblebrag bespoke tumblr freegan. Single-origin coffee thundercats fingerstache, green juice pork belly venmo ethical before they sold out occupy schlitz. Four dollar toast skateboard chia cred raw denim, etsy artisan heirloom sartorial cronut ugh fashion axe disrupt wolf farm-to-table. Hoodie messenger bag DIY, dreamcatcher locavore hammock echo park blog. Fanny pack semiotics locavore cred vegan, street art williamsburg DIY.</p>
+        </main>
+        <div id="main-image">
+          <img src="imgs/lincoln-dinosaur.jpg" alt="Historic photo of Lincoln riding a dinosaur">
+        </div>
+      </div>
+      <section id="action-buttons">
+       <div class="button">
+        <a href="#">Projects</a>
+       </div>
+       <div class="button">
+        <a href="#">Contact</a>
+       </div>
+      </section>
     </div>
-    <section>
-      <h2>This site is going places</h2>
-      <p>peas and carrots peas and carrots peas and carrots peas and carrots</p>
-    </section>
-    <main>
-      <h3>What <em>does</em> your uncle know about kohlrabi?</h3>
-      <p>What a lovely site. Just think of all those transistors in your modern machine relaying at near-light-speed in a flawless ballet to deliver this content to your screen.</p>
-    </main>
-    <img src="imgs/lincoln-dinosaur.jpg" alt="Historic photo of Lincoln riding a dinosaur">
-    <section>
-      <div></div>
-      <div></div>
-      <!--not very semantic I know, but I want these to be buttons and we're not CSSing yet. I don't want to use "button" because I'd like it to look cooler than a <form> button-->
-    </section>
     <footer>
       <p>&copy; 2015</p>
       <div>
