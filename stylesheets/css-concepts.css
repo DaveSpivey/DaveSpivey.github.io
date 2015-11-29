@@ -1,0 +1,20 @@
+p {
+  font-size: 1.5em;
+}
+
+.screenshot {
+  text-align: center;
+}
+
+.screenshot img {
+  max-width: 90%;
+  height: auto;
+}
+
+blockquote {
+  background-color: #eee;
+}
+
+span {
+  background-color: #eee;
+}

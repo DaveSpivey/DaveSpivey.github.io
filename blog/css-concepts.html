@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog post</title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/blog.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/css-concepts.css">
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li class="name">David Spivey</li>
+        <li class="navigation"><a href="../index.html">Home</a></li>
+        <li class="navigation"><a href="index.html">More Blogs</a></li>
+        <li class="navigation"><a href="#">Projects</a></li>
+        <li class="navigation"><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <main class="post">
+        <h1>Classes and IDs</h1>
+        <p>
+            We've been rounding up the basics of web technologies here in phase 0 of Dev Bootcamp, and logically we started with a healthy dose of HTML last week. We've since turned our attention to the sparkly realm of CSS, and after spending hours adjusting and re-adjusting element properties I'm bringing some relevant thoughts to blogdom. The topic here, though, is classes and IDs - those bits of information we attach to elements in HTML that seemed to muddy the water when first introduced. After constructing a page with HTML and CSS in tandem, it's become clear that defining elements with classes and IDs is just as much about CSS as it is HTML, and properly organizing content with good labeling and structure will save loads of time once CSS is introduced.
+        </p>
+        <p>
+            Let's look at a shamefully newbie moment I had this week in formatting my homepage. Although there were <em>plenty</em> of similar moments, this one has a lesson specific to our topic. Gaze upon these action buttons:
+        </p>
+        <div class="screenshot">
+            <img src="../imgs/screenshot-broken-section.png">
+        </div>
+        <p>
+            Fantastic as this obviously is, it doesn't reflect my intentions. Why did it break? Here's my CSS:
+        </p>
+        <blockquote>
+            section {
+            clear: both;
+            text-align: center;
+            }
+
+            section a {
+            position: relative;
+            text-decoration: none;
+            font-size: 2em;
+            top: 1em;
+            font-family: Verdana, sans-serif;
+            }
+        </blockquote>
+        <p>
+            Well that doesn't help. I spent a while re-examining position and clear properties with no luck, then started tinkering with neighboring elements and parent elements - just questioning whether I'd actually picked up any basic scrap of CSS knowledge this week at all - until I scrolled up and found this:
+        </p>
+        <blockquote>
+            section {
+            background-color: #cdd;
+            position: absolute;
+            width: 56%;
+            left: 40%;
+            margin-top: 4em;
+            height: auto;
+            }
+        </blockquote>
+        <p>
+            ... a completely separate block of CSS in the same file, also selecting any section element in the HTML. This is a problem! I forgot I even made that first section element, and I tried to have unique styling and formatting properties applied to both without distinguishing between the two. This is why it's best practice to introduce classes and IDs when you originally write your HTML, so that you can select elements for formatting with surgical precision.
+        </p>
+        <h2>When to use classes vs. IDs</h2>
+        <p>
+            So which did I employ when I discovered my naked and battling sections? Both let you target specific elements within the HTML, but classes have a more broad approach. These are best put into use when tagging a structure that may be recalled somewhere else in the page. For example, those buttons could have a class of "button" - which may be selected with CSS with simply: <span>.button {}</span>. This is useful if I think I may want buttons somewhere else in my page and I want them to look the same. All I have to do is tag these new buttons with the same class and that one CSS selection will apply to all the buttons at once.
+        </p>
+        <p>
+            But what if I have some really specific formatting that only makes sense to apply to one element within the page? That's the proper time for an ID. See the dinosaur feet in that image? That's a specific element that's not very likely to appear again, and because I've resized the image and formatted it in a way very specific to how it fits on the page, it's best to isolate the styling so I don't accidentally apply it to anything else. The HTML is <span>div id="main-image"</span> - then it's selected with CSS using <span>#main-image {}</span>. I ended up using ID to select my action buttons section, but class for the buttons themselves. Although I may want the styling to be reused for the shape and style of the buttons, the section that contains them had to be formatted in a specific way on the page, so by employing both tags together I've got a powerful combo of precision and modular styling. Here's the result:
+        </p>
+        <div class="screenshot">
+            <img src="../imgs/screenshot-fixed-section.png">
+        </div>
+        <p>
+            eh.. at least everything's in the right place. I've still got plenty to learn in terms of design. By the way for the container element around the two images on this post I assigned a "class" rather than an "ID". Why? Because there are 2 - and after resizing and formatting the first image, the work is already done for the second. Now to just savor the payoff.
+        </p>
+        <p>
+            So that's it for classes and IDs. The more technologies we learn to apply to generating web content, the more opportunity to create some truly cool stuff, and the more possible pitfalls and bungled efforts as all the intertwined tentacles potentially interfere with each other. Stay tuned for my next exciting entry to see what I untangle next!
+        </p>
+    </main>
+    <footer>
+      <ul>
+        <li class="foot-link"><a href="../index.html">Home</a></li>
+        <li class="foot-link"><a href="index.html">More Blogs</a></li>
+      </ul>
+    <div>
+      <img src="../imgs/social-media-icons.png" alt="Find me on the intertubes">
+    </div>
+  </footer>
+  </body>
+</html>
