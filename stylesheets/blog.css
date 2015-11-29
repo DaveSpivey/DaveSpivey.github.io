@@ -17,7 +17,7 @@
   margin: 3em 5% 3em 5%;
   border-style: solid black 1px;
   background-color: #cdd;
-  height: 7em;
+  height: auto;
 }
 
 footer ul {
@@ -27,7 +27,7 @@ footer ul {
   top: 1em;
 }
 
-footer ul a {
+.foot-link a {
   display: inline-block;
   text-decoration: none;
   font-family: Verdana, sans-serif;
@@ -35,6 +35,6 @@ footer ul a {
   font-size: 1.8em;
 }
 
-footer li {
+.foot-link {
   display: inline-block;
 }
