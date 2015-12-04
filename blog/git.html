@@ -1,48 +1,66 @@
 <!DOCTYPE html>
+<html>
 <head>
   <title>Week 1: Command Line, Git and GitHub</title>
   <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="your-stylesheet-link-here.css">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/blog.css">
 </head>
+<body>
+  <nav>
+    <ul>
+      <li class="name">David Spivey</li>
+      <li class="navigation"><a href="../index.html">Home</a></li>
+      <li class="navigation"><a href="index.html">More Blogs</a></li>
+      <li class="navigation"><a href="#">Projects</a></li>
+      <li class="navigation"><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+  <main class="post">
+    <h1>Week 1: Command Line, Git and GitHub</h1>
+    <h4>November 12, 2015</h4>
 
-<main>
-  <h1>Week 1: Command Line, Git and GitHub</h1>
-  <h2>or, The Blog Whisperer</h2>
-  <h4>November 12, 2015</h4>
-
-  <section>
-    <p>
-      Phase 0 is officially underway for Squirrels 2016 cohort at Dev Bootcamp, and I'm already learning loads. This week we focused on the command line and how to use Git and GitHub. These things all looked very obscure to me before diving in, but after a taste of using these technologies to navigate and to  manage files it's pretty clear that getting cozy with them offers a big advantage over my everyday, out-of-the-box user practices. It's no wonder Git is the industry standard for managing projects - team development would be a nightmare without version control. Let's look at why this has become such a crucial part of how things get done.
-    </p>
-    <p>
+    <section>
+      <p>
+        Phase 0 is officially underway for Squirrels 2016 cohort at Dev Bootcamp, and I'm already learning loads. This week we focused on the command line and how to use Git and GitHub. These things all looked very obscure to me before diving in, but after a taste of using these technologies to navigate and to  manage files it's pretty clear that getting cozy with them offers a big advantage over my everyday, out-of-the-box user practices. It's no wonder Git is the industry standard for managing projects - team development would be a nightmare without version control. Let's look at why this has become such a crucial part of how things get done.
+      </p>
+      <p>
+        <ul>
+          <li>Track Changes
+            <p>
+             Just like saving your work right? It's more than that. The really useful way that Git deals with this is that it offers a snapshot of all your edits: Who made changes? What changes were made? Why? And then best of all, it offers you a chance to resurrect any version previously saved in its pristine form. This is a huge saftey net for a big project.
+            </p>
+          </li>
+          <li>GitHub is an online, sharable repository
+            <p>
+              Better than just saving your work - uploading it to a remote server. Git is the tool you use in the command line to manage and edit pieces of your project. GitHub is the online platform that makes the version control process shine. Once your work is there, you can invite team members (or anyone, really) to view, download and even make edits on your work. Uh oh, wait - edit <em>your</em> work? That brings us to...
+            </p>
+          </li>
+          <li>Cloning, Branching, Merging
+            <p>
+              Your meticulously crafted code is displayed on GitHub in all its magnificence. <em>Didn't you just say anybody can grab it and run with it? What if some troll just replaces a huge chunk of it with that Never Gonna Give You Up video? What if hyenas rip it to shreds??</em>
+            </p>
+            <p>You're safe.</p>
+            <p>
+              A GitHub user like me can download, or 'clone' what you've posted on the repository to my computer. I then make a 'branch' from your project, meaning the direction I go with my edits totally leaves the original clone in its unedited form. When I'm finished editing I use a series of Git commands to push my version back to the GitHub repository. But no matter my angelic intentions, I can't just make my edits official. I have to issue a 'pull request', meaning I'd like the original user, or the project manager, to examine my edits before making it into a viable contribution to the project. If approved, the file can be 'merged', taking my edits and implementing them in the larger project without causing any ruckus.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <br>
+      <p>
+        Pretty useful! This is right this moment allowing large teams to be hugely productive and super-collaborative without stepping on toes and creating horrific bugs. That's it for now on Git and Github. I look forward to learning tons more in week 2 and sharing this wizardry with you. Thanks for reading!
+      </p>
+    </section>
+  </main>
+  <footer>
       <ul>
-        <li>Track Changes
-          <p>
-            Just like saving your work right? It's more than that. The really useful way that Git deals with this is that it offers a snapshot of all your edits: Who made changes? What changes were made? Why? And then best of all, it offers you a chance to resurrect any version previously saved in its pristine form. This is a huge saftey net for a big project.
-          </p>
-        </li>
-        <li>GitHub is an online, sharable repository
-          <p>
-            Better than just saving your work - uploading it to a remote server. Git is the tool you use in the command line to manage and edit pieces of your project. GitHub is the online platform that makes the version control process shine. Once your work is there, you can invite team members (or anyone, really) to view, download and even make edits on your work. Uh oh, wait - edit <em>your</em> work? That brings us to...
-          </p>
-        </li>
-        <li>Cloning, Branching, Merging
-          <p>
-            Your meticulously crafted code is displayed on GitHub in all its magnificence. <em>Didn't you just say anybody can grab it and run with it? What if some troll just replaces a huge chunk of it with that Never Gonna Give You Up video? What if hyenas rip it to shreds??</em>
-          </p>
-          <p>You're safe.</p>
-          <p>
-            A GitHub user like me can download, or 'clone' what you've posted on the repository to my computer. I then make a 'branch' from your project, meaning the direction I go with my edits totally leaves the original clone in its unedited form. When I'm finished editing I use a series of Git commands to push my version back to the GitHub repository. But no matter my angelic intentions, I can't just make my edits official. I have to issue a 'pull request', meaning I'd like the original user, or the project manager, to examine my edits before making it into a viable contribution to the project. If approved, the file can be 'merged', taking my edits and implementing them in the larger project without causing any ruckus.
-          </p>
-        </li>
+        <li class="foot-link"><a href="../index.html">Home</a></li>
+        <li class="foot-link"><a href="index.html">More Blogs</a></li>
       </ul>
-    </p>
-    <br>
-    <p>
-      Pretty useful! This is right this moment allowing large teams to be hugely productive and super-collaborative without stepping on toes and creating horrific bugs. That's it for now on Git and Github. I look forward to learning tons more in week 2 and sharing this wizardry with you. Thanks for reading!
-    </p>
-    <p>-Dave</p>
-
-      <!-- copy and paste as many sections as you want to add paragraphs -->
-  </section>
-</main>
+    <div>
+      <img src="../imgs/social-media-icons.png" alt="Find me on the intertubes">
+    </div>
+  </footer>
+</body>
+</html>
