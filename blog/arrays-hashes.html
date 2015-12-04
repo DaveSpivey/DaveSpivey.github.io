@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Arrays and Hashes</title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/blog.css">
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li class="name">David Spivey</li>
+        <li class="navigation"><a href="../index.html">Home</a></li>
+        <li class="navigation"><a href="index.html">More Blogs</a></li>
+        <li class="navigation"><a href="#">Projects</a></li>
+        <li class="navigation"><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <main class="post">
+      <h1>Data Structures in Ruby</h1>
+      <h2>Arrays and Hashes</h2>
+      <p>
+        When first approaching a programming language, the classes and tutorials out there suggest a lot of weird and deeply hypothetical stuff, like "Make the console print 'foobar' 5 times" and so on. It's easy to wonder how writing lines of code can eventually create huge, powerful applications. This week in Phase 0 of Dev Bootcamp introduced Ruby's tool for handling groups of data, and it offers a post-trivial glimpse of how developers utilize code bits in the real world.
+      </p>
+      <p>
+        The two basic data structures in Ruby are called arrays and hashes. Both share essentially the same purpose: to store and organize a set of data in a meaningful way. <em>How</em> it's stored and <em>how</em> it's organized is where they differ. But first, why do these even exist? Can't you store data in a variable? As we've seen in our introduction to Ruby, if you declare a variable, you can use it to store just about any type of information - words, numbers, even the results of a method call. You can then use that information to make new custom methods, isn't that enough?
+      </p>
+      <p>
+        Well it's pretty obvious, but the programs we use every day are a little more complicated than a "foobarify" app for your phone, (which does, guess what? ...<em>No!</em> the new version prints it six times! Update, fool.) and as the complexity is scaled up, so is the amount of data. How can we organize it in such a way that it can be easily and consistently found, then specifically selected for use or modification? Arrays! Hashes!
+      </p>
+      <p>
+        Let's start with arrays. You can take a piece of information in the code, like a string (set of characters) or an integer, and arrange it in a cozy group, like this:
+      </p>
+      <code>
+        ["popsicles", "rocket fuel", "self-respect", 25]
+      </code>
+      <p>
+        That's pretty fun, but not so useful - until you do this:
+      </p>
+      <code>
+        grocery_list = ["popsicles", "rocket fuel", "self-respect", 25]
+      </code>
+      <p>
+        Now we've taken that list of information and structured it in an entity called <code>grocery_list</code>, which can be used in your code like a variable. The array as a whole can be treated as one item:
+      </p>
+      <code>
+        print grocery_list<br>
+        => ["popsicles", "rocket fuel", "self-respect", 25]
+      </code>
+      <p>
+        ...or you can access an item within the array with an index:
+      </p>
+      <code>
+        print grocery_list[1]<br>
+        => rocket fuel
+      </code>
+      <p>
+        and just a whole lot else.
+      </p>
+      <p>
+        Hashes are a little different, in that the information is stored <em>associatively</em>. The structure is a key: value pair, like this: <br><code>hash = {key: value}</code> -
+        Accessing values in a hash is similar to in an array, except instead of the numerical index, you supply the key. For example if my hash looks like:
+      </p>
+      <code>
+        fav_food = {:dave => "tacos", :dog => "tacos"}
+      </code>
+      <p>
+        I could find the dog's favorite food by typing fav_food[dog]. Just because we both love tacos doesn't mean I can't store that information in a hash. Hash values can be identical, as long as the keys are unique.
+      </p>
+      <p>
+        The main difference between these two structures is how the information is stored and accessed. Arrays are better for situations where the order of data stored is predictable and sequential, like this:
+      </p>
+      <code>
+        time_machine_trials = ["failure","failure","failure"]
+      </code>
+      <p>
+        Making up keys for this array wouldn't be helpful in accessing the information later. However in a case like:
+      </p>
+      <code>
+        student_grades = {:marcus => "B", :wanda => "A", :waldo => "F"}
+      </code>
+      <p>
+        you'd really want to be able to search for the information by student name rather than guess until you found the right index. As we incorporate more and more information into our programs, we'll need the power to manipulate it in meaningful ways, and that comes down to good organization. Starting with knowing when to use arrays and when to use hashes is crucial to a solid overall architecture.
+      </p>
+      <p>Thanks for reading and checkback soon for more adventures from a Ruby n00bie.
+      </p>
+    </main>
+    <footer>
+      <ul>
+        <li class="foot-link"><a href="../index.html">Home</a></li>
+        <li class="foot-link"><a href="index.html">More Blogs</a></li>
+      </ul>
+    <div>
+      <img src="../imgs/social-media-icons.png" alt="Find me on the intertubes">
+    </div>
+  </footer>
+  </body>
+</html>
