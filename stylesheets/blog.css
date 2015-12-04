@@ -18,6 +18,14 @@
   border-style: solid black 1px;
   background-color: #cdd;
   height: auto;
+  font-size: 1.3em;
+}
+
+code {
+  width: auto;
+  background-color: #eef0f0;
+  font-family: Consolas,Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New;
+  font-size: .7em;
 }
 
 footer ul {
