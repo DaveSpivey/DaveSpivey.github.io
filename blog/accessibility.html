@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Web Accessibility</title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/blog.css">
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li class="name">David Spivey</li>
+        <li class="navigation"><a href="../index.html">Home</a></li>
+        <li class="navigation"><a href="index.html">More Blogs</a></li>
+        <li class="navigation"><a href="#">Projects</a></li>
+        <li class="navigation"><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <main class="post">
+        <h1>Designing for Accessibility</h1>
+        <p>
+          The web is an ever-evolving entity, and is continually shaped by how we use it. It’s changed so rapidly in just this past decade, and it would certainly be an unrecognizable technology to users from the AOL era of 20 years past. Through initiatives and campaigns, some progress has been made to incorporate more members of society, from the poor to the geographically far-flung, but one area in particular falls directly to designers and developers to maintain: accessibility to people with disabilities.
+        </p>
+        <p>
+          Because the web has become a central part of how communities interact and how individuals conduct personal business, it’s essential to provide the tools for anybody who visits a page to be able to understand the content. Although not always evident at first glance, there are numerous tools a designer can employ to ensure all users can access the information contained on a site. For example, how would a blind person use the internet? They do, and have for years, with software and hardware specifically for their needs.
+        </p>
+        <p>
+          One tool is a braille terminal, which converts text into braille patterns on a surface for interpretation and continually refreshes. Another is a screen reader, which literally reads the information to the listener. This seems like an easy solution, but it doesn’t always work correctly. It’s up to the site’s creator to make the source code compliant with these accessibility standards. For example, how would someone who is blind or vision-impaired interpret images? To address this, a designer should include information about the image in “alt” format within <code>img</code> tags like this: <code>img src=“/file_path.jpg” alt=“picture of a dog licking Dalai Lama’s ice cream cone”</code>. When a screen reader encounters the image tag, it can read the description to the user before continuing.
+        </p>
+        <p>
+          Accessibility standards should be practiced to accommodate not just the blind, but a diverse group of millions of people who may have obstacles to accessing content and contributing their own. Magnification software is available for older people who may have trouble reading their screens. Dictation tools can recognize speech so that those who may have trouble using a mouse and keyboard can navigate or enter text. Subtitles or links to videos with sign language are available for the deaf community, but again, this additional content is up to the creators of the site, and is not always available.
+        </p>
+        <p>
+          This is why it’s the duty of each developer and designer to learn about best practices when it comes to accessibility, and to be vigilant about putting it into practice. Access to the web as a basic right has become a more accepted idea in recent years, but it only works in practice if we all recognize the needs of the greater community and use the tools available to us to make communication in this medium truly universal.
+        </p>
+    </main>
+    <footer>
+      <ul>
+        <li class="foot-link"><a href="../index.html">Home</a></li>
+        <li class="foot-link"><a href="index.html">More Blogs</a></li>
+      </ul>
+    <div>
+      <img src="../imgs/social-media-icons.png" alt="Find me on the intertubes">
+    </div>
+  </footer>
+  </body>
+</html>
