@@ -17,7 +17,7 @@
   margin: 3em 5% 3em 5%;
   border-style: solid black 1px;
   background-color: #cdd;
-  height: auto;
+  height: 100%;
   font-size: 1.3em;
 }
 
@@ -37,7 +37,6 @@ footer ul {
 
 .foot-link a {
   display: inline-block;
-  text-decoration: none;
   font-family: Verdana, sans-serif;
   width: 160px;
   font-size: 1.8em;

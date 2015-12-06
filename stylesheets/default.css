@@ -1,11 +1,23 @@
 body {
-  background-color: #eee;
+  margin: 0;
+  background-color: #cdd;
+}
+
+* a {
+  color: #003070;
+  text-decoration: none;
+}
+
+* a:hover {
+  color: #005090;
+  text-decoration: underline;
 }
 
 nav {
   margin: -15px, 0px, 15px, 0px;
   padding: 15px;
   background-color: #9accc0;
+  background-color: #679997;
 }
 
 .name {
@@ -14,10 +26,10 @@ nav {
   width: 400px;
   text-align: left;
   text-decoration: none;
-  list-style-type: none;
+  color: #eee;
   font-size: 2.2em;
   font-family: Verdana, sans-serif;
-  letter-spacing: 10px;
+  letter-spacing: 14px;
 }
 
 .navigation {
@@ -30,7 +42,6 @@ nav {
 .navigation a {
   display: block;
   text-align: center;
-  text-decoration: none;
   font-family: Verdana, sans-serif;
   width: 160px;
   font-size: 1.8em;
@@ -38,6 +49,7 @@ nav {
 
 #wrapper {
   margin: 1% 2% 1% 2%;
+  background-color: #cdd;
 }
 
 #profile {
@@ -53,12 +65,12 @@ nav {
 }
 
 #headlines {
-  background-color: #cdd;
   position: absolute;
   width: 56%;
   left: 40%;
   margin-top: 4em;
   height: auto;
+  font-family: sans-serif;
 }
 
 #headlines h2 {
@@ -69,44 +81,9 @@ nav {
   font-size: 1.5em;
 }
 
-#page-body {
-  display: inline-block;
-  float: left;
-  width: 30%;
-  height: 100%;
-  background-color: #cdd;
-}
-
-#page-body h3 {
-  font-size: 2em;
-}
-
-#page-body p {
-  font-size: 1.5em;
-}
-
-.main-content {
-  display: inline-block;
-}
-
-#main-image img {
-  display: inline-block;
-  float: right;
-  max-width: 60%;
-  height: auto;
-}
-
 #action-buttons {
   clear: both;
   text-align: center;
-}
-
-#action-buttons a {
-  position: relative;
-  text-decoration: none;
-  font-size: 2em;
-  top: 1em;
-  font-family: Verdana, sans-serif;
 }
 
 .button {
@@ -115,16 +92,32 @@ nav {
   width: 20%;
   height: 7em;
   border-radius: 20px;
-  background-color: #6a9;
+  background-color: #679997;
+}
+
+.button a {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  font-size: 2em;
+  padding-top: 1em;
+  padding-bottom: -1em;
+  font-family: Verdana, sans-serif;
+}
+
+.button:hover {
+  background-color: #78aaa8;
 }
 
 footer {
   position: relative;
   clear: both;
-  background-color: #9accc0;
+  background-color: #679997;
   width: 100%;
   height: 6em;
-  top: 25px;
+  top: 5em;
 }
 
 footer p {
@@ -133,6 +126,7 @@ footer p {
   font-size: 1.4em;
   top: 1em;
   left: 1em;
+  color: #eee;
 }
 
 footer div {
