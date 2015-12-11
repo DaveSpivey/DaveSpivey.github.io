@@ -142,3 +142,8 @@ footer img {
   height: auto;
   margin-right: 1.5em;
 }
+
+footer img:hover {
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}

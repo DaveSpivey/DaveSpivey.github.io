@@ -32,6 +32,11 @@ main .contact-buttons {
   margin-top: 1em;
 }
 
+.contact-buttons img:hover {
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
 main h1 {
   font-weight: lighter;
   letter-spacing: 0.4em;
