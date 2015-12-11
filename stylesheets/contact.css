@@ -1,0 +1,47 @@
+main {
+  position: relative;
+  display: block;
+}
+
+main img {
+  width: 100%;
+  height: auto;
+}
+
+main .text {
+  display: inline-block;
+  position: absolute;
+  top: 9%;
+  left: 35%;
+  font-size: 2em;
+  font-family: Verdana, sans-serif;
+  color: #fff;
+}
+
+main .contact-buttons {
+  display: block;
+  position: absolute;
+  left: 80%;
+  top: 12%;
+}
+
+.contact-buttons img {
+  display: block;
+  max-width: 6em;
+  height: auto;
+  margin-top: 1em;
+}
+
+main h1 {
+  font-weight: lighter;
+  letter-spacing: 0.4em;
+}
+
+main:after {
+  content: "Photo by: Gordon Wallace / Los Angeles Times";
+  float: right;
+  position: absolute;
+  right: 10px;
+  font-weight: lighter;
+  font-size: 0.7em;
+}
