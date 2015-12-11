@@ -134,4 +134,11 @@ footer div {
   display: inline-block;
   float: right;
   top: 1em;
+  right: 1em;
+}
+
+footer img {
+  max-width: 4em;
+  height: auto;
+  margin-right: 1.5em;
 }
