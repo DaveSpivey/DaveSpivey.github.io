@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog post</title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/blog.css">
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li class="name">Dave Spivey</li>
+        <li class="navigation"><a href="../index.html">Home</a></li>
+        <li class="navigation"><a href="index.html">More Blogs</a></li>
+        <li class="navigation"><a href="#">Projects</a></li>
+        <li class="navigation"><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <main class="post">
+        <h1>#inject</h1>
+        <p>
+          The enumerable module has been blowing my mind as a toolkit for creating meaningful code. In simpler times (one week ago) a method could only achieve a goal in a few clunky ways, and my pairing experiences resulted in like-minded approaches to tackling challenges.
+        </p>
+        <p>
+          This week peels back the curtain a bit on the potential for creativity in Ruby. Pairing is suddenly much more fun, because everyone I collaborated with had different ideas on what methods to use, or even how to structure the entire solution. Methods for iterating through arrays and hashes have been a large part of the focus for the week, but the enumerable module in particular is becoming the engine for how I perceive possible avenues of problem solving.
+        </p>
+        <p>
+          I've had my eye on #inject, mostly because I did a bunch of challenges on coderbyte.com, which lets you see how other users have solved the problem after you've submitted your solution. Even when I was reasonably proud of my solution, someone else's would pop up and freak me out how terse they could make their code. Usually these occasions involved a combination of #inject and a regular expression - so it may as well have been just binary code - and was too much to untangle at that stage.
+        </p>
+        <p>
+          Fortunately, #inject is much simpler to understand in its basic form. Let's start with the easiest way to use it - we have an array of integers and we want to add them together. Usually I would create a new variable to store the sum values and iterate through the array incrementing sum, like this:
+        </p>
+        <code>
+          array = [1, 2, 3, 4]<br>
+          sum = 0<br>
+          array.each { |num| sum += num }<br>
+          sum<br>
+          => 10
+        </code>
+        <p>
+          Not bad. Here's how #inject handles it:
+        </p>
+        <code>
+          array = [1, 2, 3, 4]<br>
+          array.inject { |memo, element| memo + element }<br>
+          => 10
+        </code>
+        <p>
+          We didn't even bother with the placeholder variable. It's built in to #inject - that was the <code>memo</code> argument in the block. Let's break that down:
+        </p>
+        <ul>
+          <li>#inject is called by an object, in this case an array</li>
+          <li>Two arguments are supplied in the block, the first is a placeholder, or accumulator value (Ruby docs call it a "memo"), the second is the element currently being indexed</li>
+          <li>The block is processed once for each value, with the memo value being the result of evaluating the previous loop</li>
+          <li>The block returns the value of the memo after completing</li>
+        </ul>
+        <p>
+          So in our adding method we started at array[0], which was <code>1</code>, moved to the array[1], and added the value of <code>memo</code> (which is 1) to the next element, which is then stored in <code>memo</code> for the next element to process. When we get to the end, we don't even have to return a sum variable because #inject has already implicitly done it.
+        </p>
+        <p>
+          So why didn't <code>memo</code> do anything on the first loop through that block? There was no previous value stored because the loop hadn't run yet. It defaults to storing the first value then using it starting on the second pass. But want if you want it to have a value? Turns out #inject accepts an optional argument before it runs a code block:
+        </p>
+        <code>
+          (3..6).inject(2) { |memo, num| memo * num }<br>
+          => 720
+        </code>
+        <p>
+          So here the code block was supplied with a starting value for <code>memo</code>, so starting with the first loop, it applied <code>2</code>. Instead of multiplying 3 * 4 * 5 * 6 it started with <code>memo * num</code> being 2 * 3. After the first loop runs, <code>memo</code> is now 6 instead of just 3. I want to point out 2 things: first, that this time we called #inject on a range instead of an array (totally fine), and second, the code block isn't running <code>memo *= num</code>, it's <code>memo * num</code>. That's because you don't need to explicitly reassign a value to the placeholder - it's built in to the function.
+        </p>
+        <p>
+          I want to end with a method I wrote for a challenge last week that takes an array of strings and returns the shortest string:
+        </p>
+        <code>
+          def shortest_string(list_of_words)<br>
+            shortest = list_of_words[0]<br>
+            list_of_words.each do |word|<br>
+            if word.length &#60; shortest.length<br>
+              shortest = word<br>
+            end<br>
+            shortest<br>
+          end<br>
+        </code>
+        <p>What does #inject have to say about that?</p>
+        <code>
+          def shortest_string(list_of_words)<br>
+            list_of_words.inject { |shortest, word| word.length &#60; shortest.length ? word : shortest }<br>
+          end
+        </code>
+        <p>
+          When I figured this out I was like
+        </p>
+        <img class="megaman" src="../imgs/get_equipped_with_metal_blade.png" alt="Megaman gets best weapon ever">
+        <p>
+          as opposed to when I learned that #collect was exactly the same as #map and I was like
+        </p>
+        <img class="megaman" src="../imgs/get_equipped_with_bubble_lead.png" alt="Megaman gets worst weapon ever">
+    </main>
+    <footer>
+      <ul>
+        <li class="foot-link"><a href="../index.html">Home</a></li>
+        <li class="foot-link"><a href="index.html">More Blogs</a></li>
+      </ul>
+    <div>
+      <a href="https://www.linkedin.com/in/dave-spivey-164213b2"><img src="../imgs/linkedin_button.png"></a>
+      <a href="https://github.com/DaveSpivey"><img src="../imgs/github_button.png"></a>
+    </div>
+  </footer>
+  </body>
+</html>
