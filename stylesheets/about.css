@@ -1,20 +1,45 @@
 article {
-  position: absolute;
-  display: block;
-  left: 9em;
-  right: 9em;
+  position: relative;
+  display: inline-block;
+  width: 45%;
+  margin: 0 4em 0 4em;
+  float: left;
 }
 
 article h3 {
-  margin: 2em 0 2em 0;
-  font-size: 2em;
+  margin: 1.5em 0 1.5em 0;
+  font-size: 2.3em;
   font-family: sans-serif;
-  letter-spacing: 2px;
+  letter-spacing: .1em;
+}
+
+#fade_1 {
+  opacity: 0.4;
+}
+
+#fade_2 {
+  opacity: 0.2;
+}
+
+#fade_3 {
+  opacity: 0.05;
 }
 
 article p {
-  font-size: 1.5em;
+  font-size: 1.4em;
   font-family: sans-serif;
+}
+
+.profile {
+  position: absolute;
+  display: inline-block;
+  float: right;
+}
+
+.profile img {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
 }
 
 footer {
