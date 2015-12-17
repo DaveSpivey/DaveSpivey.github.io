@@ -1,0 +1,23 @@
+article {
+  position: absolute;
+  display: block;
+  left: 9em;
+  right: 9em;
+}
+
+article h3 {
+  margin: 2em 0 2em 0;
+  font-size: 2em;
+  font-family: sans-serif;
+  letter-spacing: 2px;
+}
+
+article p {
+  font-size: 1.5em;
+  font-family: sans-serif;
+}
+
+footer {
+  position: absolute;
+  top: 90%;
+}
