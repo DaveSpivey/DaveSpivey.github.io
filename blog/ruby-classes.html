@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ruby Classes</title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/blog.css">
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li class="name">Dave Spivey</li>
+        <li class="navigation"><a href="../index.html">Home</a></li>
+        <li class="navigation"><a href="index.html">More Blogs</a></li>
+        <li class="navigation"><a href="#">Projects</a></li>
+        <li class="navigation"><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <main class="post">
+        <h1>Classes in Ruby</h1>
+        <p>
+          Ruby is what's called an "object-oriented" programming language, but what does that mean? Is the code there to manipulate real life objects? Is there a sort of virtual Lego set in your computer for building little robots? Sort of. Object-oriented programming lets you model the structure of your overall program on smaller components made of code, which can learn and recall attributes unique to their identities. So instead of just writing code that performs something like "dog barks now", you can have code that actually <em>represents</em> the dog, and have that dog <em>know how</em> to bark. Sounds like a blast, I know, but this can give a programmer lots of power in the environments they create.
+        </p>
+        <p>
+          Let's say you find yourself face-to-face with a Terminator. This is a killing machine. It will decide whether to take you out based on its programming, or more specifically, what functions it executes based on its mission, its target, its environment etc. If you were a post-apocalyptic AI charged with designing a robot to go back in time and kill Sarah Connor, how would you do it? Would you just start by making your T-800 walk until it finds her? How does it know when it's in danger of failing its mission, or coming to harm itself? Your code would quickly become sprawling and unorganized - and maintenance would be a nightmare.
+        </p>
+        <p>
+          Worse, what if you were future John Connor, and you needed to re-program a captured T-800? Before you send that thing back in time you better make <em>absolutely sure</em> you found <em>every</em> bit of code that directs it to "murder Sarah Connor"! You'd like to tell it to do something like "please don't murder Sarah Connor". Every terminator has a target, right? Yours used to be "Sarah Connor", and you want to change it to "T-1000". How does it know what to do with that information?
+        </p>
+        <p>
+          The AI who designed the terminator has already built in a <code>target</code> definition - in fact it's built in to every terminator. The T-800 you captured isn't even the same one that tried to kill your mom in the 80's, it just looks the same. So the T-800 model, like all terminators, is humanoid, can speak, has a target that it hunts etc. - but this particular one has its own unique target. This makes it so much easier to crank out all those fake Arnolds at the end of "Terminator: Salvation" - the software is all set up, you just have to give specific parameters to each instance of your terminator and ship it off!
+        </p>
+        <p>
+          In Ruby this set of guiding functionalities is called a class. All the terminators know how to cook a fool - that's what they do - they get the blueprint for this from their class: "Terminator". Let's look at a simple Terminator class:
+        </p>
+        <code>
+          class Terminator<br><br>
+          def terminate<br>
+            puts "Hasta la vista, baby."<br>
+            puts "(You're totally terminated)"<br>
+          end<br>
+          end
+        </code>
+        <p>
+          Within our definition for the <code>Terminator</code> class, we have a method to <code>terminate</code>. We can't do anything with this until we have an object of class <code>Terminator</code>. So let's make one!
+        </p>
+        <code>
+          johnny_five = Terminator.new<br>
+          johnny_five.terminate<br>
+          => Hasta la vista, baby.<br>
+          => (You're totally terminated)
+        </code>
+        <p>
+          <code>johnny_five</code> is an "instance" of an object within the <code>Terminator</code> class. This means <code>johnny_five</code> inherits all the capabilities defined by <code>Terminator</code> and can call on those using "dot notation" like: <code>johnny_five.terminate</code>. What about those specific individual traits that aren't necessarily shared with every terminator? You can define those as parameters when you create a new instance of the class:
+        </p>
+        <code>
+          t = Terminator.new("T-800", "Sarah Connor", "Arnold-ness", 8)
+        </code>
+        <p>
+          Each of those items in the parentheses correspond to a parameter that the object internalized when it "initializes":
+        </p>
+        <code>
+          def initialize(model, target, skill, scary_scale)<br>
+            @model = model<br>
+            @target = target<br>
+            @skill = skill<br>
+            @scary_scale = scary_scale<br>
+          end
+        </code>
+        <p>
+          Now this new terminator, t, "knows" that its model is "T-800", its target is "Sarah Connor", its skill is "Arnold-ness", and its scary_scale is 8. If we like, we can give the <code>Terminator</code> class a new method:
+        </p>
+        <code>
+          def identify<br>
+            puts "I am a #{@model} terminator sent from the future. I have been programmed to terminate #{@target} using #{@skill}"<br>
+          end
+        </code>
+        <p>
+          So we can inquire of this charming new fellow:
+        </p>
+        <code>
+          t.identify<br>
+          => I am a T-800 terminator sent from the future. I have been programmed to terminate Sarah Connor using Arnold-ness
+        </code>
+        <p>
+          Lovely. All those <code>@</code> symbols before our variables have special meaning for our object. These demark "instance variables", meaning they are accessible within the definition of the class, and can be called upon by our instance object for its "instance methods". These are just methods that can be called by our instance. So <code>identify</code> is an instance method, which can access instance variables <code>@model</code>, <code>@target</code> and <code>@skill</code> to have custom functionality for our instance.
+        </p>
+        <p>
+          What about that last instance variable, <code>@scary_scale</code>? Just for fun, we can use this as a ranking for a short survival game. Here's the instance method we can call:
+        </p>
+        <code>
+          def how_dead_are_you<br>
+            if @scary_scale > 8<br>
+              puts "You're toast, don't even think about trying to save the future."<br>
+              terminate<br>
+            elsif @scary_scale > 4 &#38;&#38; @scary_scale &#60;= 8<br>
+              puts "Action sequence!"<br>
+              death_chance = rand(10)<br>
+              sleep(1)<br>
+              if death_chance + @scary_scale > 9<br>
+                puts "You've failed, Skynet goes live"<br>
+                terminate<br>
+              else<br>
+                puts "You've escaped ... until the sequel."<br>
+              end<br>
+            else<br>
+              puts "This must be the T-X model, from Terminator 3. Feel free to take a nap."<br>
+            end<br>
+          end
+        </code>
+        <p>
+          So it looks like the higher we set <code>@scary_scale</code> the less chance we make it out alive because <code>terminate</code> is called.
+        </p>
+        <p>
+          I hope this post has been just instructive enough to get you comfortable with how classes work in Ruby, but not instructive enough to allow you to build your own terminator to send back in time and prevent me from writing it. Hasta la vista.
+        </p>
+    </main>
+    <footer>
+      <ul>
+        <li class="foot-link"><a href="../index.html">Home</a></li>
+        <li class="foot-link"><a href="index.html">More Blogs</a></li>
+      </ul>
+    <div>
+      <a href="https://www.linkedin.com/in/dave-spivey-164213b2"><img src="../imgs/linkedin_button.png"></a>
+      <a href="https://github.com/DaveSpivey"><img src="../imgs/github_button.png"></a>
+    </div>
+  </footer>
+  </body>
+</html>
