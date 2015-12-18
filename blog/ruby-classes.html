@@ -19,7 +19,7 @@
     <main class="post">
         <h1>Classes in Ruby</h1>
         <p>
-          Ruby is what's called an "object-oriented" programming language, but what does that mean? Is the code there to manipulate real life objects? Is there a sort of virtual Lego set in your computer for building little robots? Sort of. Object-oriented programming lets you model the structure of your overall program on smaller components made of code, which can learn and recall attributes unique to their identities. So instead of just writing code that performs something like "dog barks now", you can have code that actually <em>represents</em> the dog, and have that dog <em>know how</em> to bark. Sounds like a blast, I know, but this can give a programmer lots of power in the environments they create.
+          Ruby is what's called an "object-oriented" programming language, but what does that mean? Is the code there to manipulate real life objects? Is there a sort of virtual Lego set in your computer for building little robots? Sort of. Object-oriented programming lets you model the structure of your overall program on smaller components made of code, which can learn and recall attributes specific to their identities. So instead of just writing code that performs something like "dog barks now", you can have code that actually <em>represents</em> the dog, and have that dog <em>know how</em> to bark. Moreover, using something called a "class", the dog will know how to bark because all objects in the class "Dog" know how to bark. Sound useful? Maybe not yet, but this can give a programmer lots of power in the environments they create.
         </p>
         <p>
           Let's say you find yourself face-to-face with a Terminator. This is a killing machine. It will decide whether to take you out based on its programming, or more specifically, what functions it executes based on its mission, its target, its environment etc. If you were a post-apocalyptic AI charged with designing a robot to go back in time and kill Sarah Connor, how would you do it? Would you just start by making your T-800 walk until it finds her? How does it know when it's in danger of failing its mission, or coming to harm itself? Your code would quickly become sprawling and unorganized - and maintenance would be a nightmare.
@@ -54,7 +54,7 @@
           <code>johnny_five</code> is an "instance" of an object within the <code>Terminator</code> class. This means <code>johnny_five</code> inherits all the capabilities defined by <code>Terminator</code> and can call on those using "dot notation" like: <code>johnny_five.terminate</code>. What about those specific individual traits that aren't necessarily shared with every terminator? You can define those as parameters when you create a new instance of the class:
         </p>
         <code>
-          t = Terminator.new("T-800", "Sarah Connor", "Arnold-ness", 8)
+          schwartz = Terminator.new("T-800", "Sarah Connor", "Arnold-ness", 8)
         </code>
         <p>
           Each of those items in the parentheses correspond to a parameter that the object internalized when it "initializes":
@@ -68,7 +68,7 @@
           end
         </code>
         <p>
-          Now this new terminator, t, "knows" that its model is "T-800", its target is "Sarah Connor", its skill is "Arnold-ness", and its scary_scale is 8. If we like, we can give the <code>Terminator</code> class a new method:
+          Now this new terminator, schwartz, "knows" that its model is "T-800", its target is "Sarah Connor", its skill is "Arnold-ness", and its scary_scale is 8. If we like, now we can give the <code>Terminator</code> class a new method:
         </p>
         <code>
           def identify<br>
@@ -79,11 +79,11 @@
           So we can inquire of this charming new fellow:
         </p>
         <code>
-          t.identify<br>
+          schwartz.identify<br>
           => I am a T-800 terminator sent from the future. I have been programmed to terminate Sarah Connor using Arnold-ness
         </code>
         <p>
-          Lovely. All those <code>@</code> symbols before our variables have special meaning for our object. These demark "instance variables", meaning they are accessible within the definition of the class, and can be called upon by our instance object for its "instance methods". These are just methods that can be called by our instance. So <code>identify</code> is an instance method, which can access instance variables <code>@model</code>, <code>@target</code> and <code>@skill</code> to have custom functionality for our instance.
+          Lovely. All those <code>@</code> symbols before our variables have special meaning for our object. These demark "instance variables", meaning they are accessible within the definition of the class, and can be called upon by our object (schwartz) for its "instance methods". These are just methods that can be called by our instance. So <code>identify</code> is an instance method, which can access instance variables <code>@model</code>, <code>@target</code> and <code>@skill</code> to have custom functionality for our instance.
         </p>
         <p>
           What about that last instance variable, <code>@scary_scale</code>? Just for fun, we can use this as a ranking for a short survival game. Here's the instance method we can call:
@@ -98,7 +98,7 @@
               death_chance = rand(10)<br>
               sleep(1)<br>
               if death_chance + @scary_scale > 9<br>
-                puts "You've failed, Skynet goes live"<br>
+                puts "You've failed, Skynet goes live."<br>
                 terminate<br>
               else<br>
                 puts "You've escaped ... until the sequel."<br>
@@ -112,8 +112,9 @@
           So it looks like the higher we set <code>@scary_scale</code> the less chance we make it out alive because <code>terminate</code> is called.
         </p>
         <p>
-          I hope this post has been just instructive enough to get you comfortable with how classes work in Ruby, but not instructive enough to allow you to build your own terminator to send back in time and prevent me from writing it. Hasta la vista.
+          I hope this post has been just instructive enough to get you comfortable with how classes work in Ruby, but not instructive enough to allow you to build your own terminator to send back in time and prevent me from writing this. Hasta la vista.
         </p>
+        <img src="../imgs/t-1000-no-no.gif" alt="Don't insult the t-one thousand's cooking">
     </main>
     <footer>
       <ul>
