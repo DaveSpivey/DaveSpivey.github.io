@@ -31,7 +31,7 @@
         <p>
             Fantastic as this obviously is, it doesn't reflect my intentions. Why did it break? Here's my CSS:
         </p>
-        <code>
+        <pre><code>
             section {
             clear: both;
             text-align: center;
@@ -44,11 +44,11 @@
             top: 1em;
             font-family: Verdana, sans-serif;
             }
-        </code>
+        </code></pre>
         <p>
             Well that doesn't help. I spent a while re-examining position and clear properties with no luck, then started tinkering with neighboring elements and parent elements - just questioning whether I'd actually picked up any basic scrap of CSS knowledge this week at all - until I scrolled up and found this:
         </p>
-        <code>
+        <pre><code>
             section {
             background-color: #cdd;
             position: absolute;
@@ -57,16 +57,16 @@
             margin-top: 4em;
             height: auto;
             }
-        </code>
+        </code></pre>
         <p>
             ... a completely separate block of CSS in the same file, also selecting any section element in the HTML. This is a problem! I forgot I even made that first section element, and I tried to have unique styling and formatting properties applied to both without distinguishing between the two. This is why it's best practice to introduce classes and IDs when you originally write your HTML, so that you can select elements for formatting with surgical precision.
         </p>
         <h2>When to use classes vs. IDs</h2>
         <p>
-            So which did I employ when I discovered my naked and battling sections? Both let you target specific elements within the HTML, but classes have a more broad approach. These are best put into use when tagging a structure that may be recalled somewhere else in the page. For example, those buttons could have a class of "button" - which may be selected with CSS with simply: <span>.button {}</span>. This is useful if I think I may want buttons somewhere else in my page and I want them to look the same. All I have to do is tag these new buttons with the same class and that one CSS selection will apply to all the buttons at once.
+            So which did I employ when I discovered my naked and battling sections? Both let you target specific elements within the HTML, but classes have a more broad approach. These are best put into use when tagging a structure that may be recalled somewhere else in the page. For example, those buttons could have a class of "button" - which may be selected with CSS with simply: <code>.button {}</code>. This is useful if I think I may want buttons somewhere else in my page and I want them to look the same. All I have to do is tag these new buttons with the same class and that one CSS selection will apply to all the buttons at once.
         </p>
         <p>
-            But what if I have some really specific formatting that only makes sense to apply to one element within the page? That's the proper time for an ID. See the dinosaur feet in that image? That's a specific element that's not very likely to appear again, and because I've resized the image and formatted it in a way very specific to how it fits on the page, it's best to isolate the styling so I don't accidentally apply it to anything else. The HTML is <span>div id="main-image"</span> - then it's selected with CSS using <span>#main-image {}</span>. I ended up using ID to select my action buttons section, but class for the buttons themselves. Although I may want the styling to be reused for the shape and style of the buttons, the section that contains them had to be formatted in a specific way on the page, so by employing both tags together I've got a powerful combo of precision and modular styling. Here's the result:
+            But what if I have some really specific formatting that only makes sense to apply to one element within the page? That's the proper time for an ID. See the dinosaur feet in that image? That's a specific element that's not very likely to appear again, and because I've resized the image and formatted it in a way very specific to how it fits on the page, it's best to isolate the styling so I don't accidentally apply it to anything else. The HTML is <code>div id="main-image"</code> - then it's selected with CSS using <code>#main-image {}</code>. I ended up using ID to select my action buttons section, but class for the buttons themselves. Although I may want the styling to be reused for the shape and style of the buttons, the section that contains them had to be formatted in a specific way on the page, so by employing both tags together I've got a powerful combo of precision and modular styling. Here's the result:
         </p>
         <div class="screenshot">
             <img src="../imgs/screenshot-fixed-section.png">

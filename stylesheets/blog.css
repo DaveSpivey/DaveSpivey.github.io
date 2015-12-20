@@ -13,12 +13,18 @@
 .post {
   position: relative;
   display: block;
-  width: 90%;
-  margin: 3em 5% 3em 5%;
+  width: 70%;
+  margin: 3em 15% 3em 15%;
   border-style: solid black 1px;
   background-color: #cdd;
   height: 100%;
-  font-size: 1.3em;
+  font-size: 1.4em;
+  line-height: 125%;
+}
+
+pre {
+  width: auto;
+  background-color: #eef0f0;
 }
 
 code {
@@ -26,6 +32,7 @@ code {
   background-color: #eef0f0;
   font-family: Consolas,Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New;
   font-size: .7em;
+  white-space: pre-wrap;
 }
 
 footer ul {

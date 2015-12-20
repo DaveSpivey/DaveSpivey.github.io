@@ -31,29 +31,29 @@
       <p>
         Let's start with arrays. You can take a piece of information in the code, like a string (set of characters) or an integer, and arrange it in a cozy group, like this:
       </p>
-      <code>
+      <pre><code>
         ["popsicles", "rocket fuel", "self-respect", 25]
-      </code>
+      </code></pre>
       <p>
         That's pretty fun, but not so useful - until you do this:
       </p>
-      <code>
+      <pre><code>
         grocery_list = ["popsicles", "rocket fuel", "self-respect", 25]
-      </code>
+      </code></pre>
       <p>
         Now we've taken that list of information and structured it in an entity called <code>grocery_list</code>, which can be used in your code like a variable. The array as a whole can be treated as one item:
       </p>
-      <code>
-        print grocery_list<br>
+      <pre><code>
+        print grocery_list
         => ["popsicles", "rocket fuel", "self-respect", 25]
-      </code>
+      </code></pre>
       <p>
         ...or you can access an item within the array with an index:
       </p>
-      <code>
-        print grocery_list[1]<br>
+      <pre><code>
+        print grocery_list[1]
         => rocket fuel
-      </code>
+      </code></pre>
       <p>
         and just a whole lot else.
       </p>
@@ -61,24 +61,24 @@
         Hashes are a little different, in that the information is stored <em>associatively</em>. The structure is a key: value pair, like this: <br><code>hash = {key: value}</code> -
         Accessing values in a hash is similar to in an array, except instead of the numerical index, you supply the key. For example if my hash looks like:
       </p>
-      <code>
+      <pre><code>
         fav_food = {:dave => "tacos", :dog => "tacos"}
-      </code>
+      </code></pre>
       <p>
         I could find the dog's favorite food by typing fav_food[dog]. Just because we both love tacos doesn't mean I can't store that information in a hash. Hash values can be identical, as long as the keys are unique.
       </p>
       <p>
         The main difference between these two structures is how the information is stored and accessed. Arrays are better for situations where the order of data stored is predictable and sequential, like this:
       </p>
-      <code>
+      <pre><code>
         time_machine_trials = ["failure","failure","failure"]
-      </code>
+      </code></pre>
       <p>
         Making up keys for this array wouldn't be helpful in accessing the information later. However in a case like:
       </p>
-      <code>
+      <pre><code>
         student_grades = {:marcus => "B", :wanda => "A", :waldo => "F"}
-      </code>
+      </code></pre>
       <p>
         you'd really want to be able to search for the information by student name rather than guess until you found the right index. As we incorporate more and more information into our programs, we'll need the power to manipulate it in meaningful ways, and that comes down to good organization. Starting with knowing when to use arrays and when to use hashes is crucial to a solid overall architecture.
       </p>
