@@ -33,81 +33,84 @@
         <p>
           In Ruby this set of guiding functionalities is called a class. All the terminators know how to cook a fool - that's what they do - they get the blueprint for this from their class: "Terminator". Let's look at a simple Terminator class:
         </p>
-        <code>
-          class Terminator<br><br>
-          def terminate<br>
-            puts "Hasta la vista, baby."<br>
-            puts "(You're totally terminated)"<br>
-          end<br>
+        <pre><code>
+          class Terminator
+
+            def terminate
+              puts "Hasta la vista, baby."
+              puts "(You're totally terminated)"
+            end
           end
-        </code>
+        </code></pre>
         <p>
           Within our definition for the <code>Terminator</code> class, we have a method to <code>terminate</code>. We can't do anything with this until we have an object of class <code>Terminator</code>. So let's make one!
         </p>
-        <code>
-          johnny_five = Terminator.new<br>
-          johnny_five.terminate<br>
-          => Hasta la vista, baby.<br>
+        <pre><code>
+          johnny_five = Terminator.new
+          johnny_five.terminate
+          => Hasta la vista, baby.
           => (You're totally terminated)
-        </code>
+        </code></pre>
         <p>
-          <code>johnny_five</code> is an "instance" of an object within the <code>Terminator</code> class. This means <code>johnny_five</code> inherits all the capabilities defined by <code>Terminator</code> and can call on those using "dot notation" like: <code>johnny_five.terminate</code>. What about those specific individual traits that aren't necessarily shared with every terminator? You can define those as parameters when you create a new instance of the class:
+          <code>johnny_five</code> is an "instance" of an object within the <code>Terminator</code> class. This means <code>johnny_five</code> inherits all the capabilities defined by <code>Terminator</code> and can call on those using "dot notation" like: <code>johnny_five.terminate</code>. What about those specific individual traits that aren't necessarily shared with every terminator? You can define those as arguments when you create a new instance of the class:
         </p>
-        <code>
+        <pre><code>
           schwartz = Terminator.new("T-800", "Sarah Connor", "Arnold-ness", 8)
-        </code>
+        </code></pre>
         <p>
           Each of those items in the parentheses correspond to a parameter that the object internalized when it "initializes":
         </p>
-        <code>
-          def initialize(model, target, skill, scary_scale)<br>
-            @model = model<br>
-            @target = target<br>
-            @skill = skill<br>
-            @scary_scale = scary_scale<br>
+        <pre><code>
+          def initialize(model, target, skill, scary_scale)
+            @model = model
+            @target = target
+            @skill = skill
+            @scary_scale = scary_scale
           end
-        </code>
+        </code></pre>
         <p>
-          Now this new terminator, schwartz, "knows" that its model is "T-800", its target is "Sarah Connor", its skill is "Arnold-ness", and its scary_scale is 8. If we like, now we can give the <code>Terminator</code> class a new method:
+          Now this new terminator, <code>schwartz</code>, "knows" that its <code>model</code> is "T-800", its <code>target</code> is "Sarah Connor", its <code>skill</code> is "Arnold-ness"(?), and its <code>scary_scale</code> is 8. If we like, now we can give the <code>Terminator</code> class a new method:
         </p>
-        <code>
-          def identify<br>
-            puts "I am a #{@model} terminator sent from the future. I have been programmed to terminate #{@target} using #{@skill}"<br>
+        <pre><code>
+          def identify
+            puts "I am a #{@model} terminator sent from the future. I have been programmed to
+            terminate #{@target} using #{@skill}"
           end
-        </code>
+        </code></pre>
         <p>
           So we can inquire of this charming new fellow:
         </p>
-        <code>
-          schwartz.identify<br>
-          => I am a T-800 terminator sent from the future. I have been programmed to terminate Sarah Connor using Arnold-ness
-        </code>
+        <pre><code>
+          schwartz.identify
+          => I am a T-800 terminator sent from the future. I have been programmed to
+          terminate Sarah Connor using Arnold-ness
+        </code></pre>
         <p>
-          Lovely. All those <code>@</code> symbols before our variables have special meaning for our object. These demark "instance variables", meaning they are accessible within the definition of the class, and can be called upon by our object (schwartz) for its "instance methods". These are just methods that can be called by our instance. So <code>identify</code> is an instance method, which can access instance variables <code>@model</code>, <code>@target</code> and <code>@skill</code> to have custom functionality for our instance.
+          Lovely. All those <code>@</code> symbols before our variables have special meaning for our object. These demark "instance variables", meaning they are accessible within the definition of the class, and can be called upon by our object (<code>schwartz</code>) for its "instance methods". These are just methods that can be called by our instance. So <code>identify</code> is an instance method, which can access instance variables <code>@model</code>, <code>@target</code> and <code>@skill</code> to have custom functionality for our instance.
         </p>
         <p>
           What about that last instance variable, <code>@scary_scale</code>? Just for fun, we can use this as a ranking for a short survival game. Here's the instance method we can call:
         </p>
-        <code>
-          def how_dead_are_you<br>
-            if @scary_scale > 8<br>
-              puts "You're toast, don't even think about trying to save the future."<br>
-              terminate<br>
-            elsif @scary_scale > 4 &#38;&#38; @scary_scale &#60;= 8<br>
-              puts "Action sequence!"<br>
-              death_chance = rand(10)<br>
-              sleep(1)<br>
-              if death_chance + @scary_scale > 9<br>
-                puts "You've failed, Skynet goes live."<br>
-                terminate<br>
-              else<br>
-                puts "You've escaped ... until the sequel."<br>
-              end<br>
-            else<br>
-              puts "This must be the T-X model, from Terminator 3. Feel free to take a nap."<br>
-            end<br>
+        <pre><code>
+          def how_dead_are_you
+            if @scary_scale > 8
+              puts "You're toast, don't even think about trying to save the future."
+              terminate
+            elsif @scary_scale > 4 &#38;&#38; @scary_scale &#60;= 8
+              puts "Action sequence!"
+              death_chance = rand(10)
+              sleep(1)
+              if death_chance + @scary_scale > 9
+                puts "You've failed, Skynet goes live."
+                terminate
+              else
+                puts "You've escaped ... until the sequel."
+              end
+            else
+              puts "This must be the T-X model, from Terminator 3. Feel free to take a nap."
+            end
           end
-        </code>
+        </code></pre>
         <p>
           So it looks like the higher we set <code>@scary_scale</code> the less chance we make it out alive because <code>terminate</code> is called.
         </p>

@@ -30,21 +30,21 @@
         <p>
           Fortunately, #inject is much simpler to understand in its basic form. Let's start with the easiest way to use it - we have an array of integers and we want to add them together. Usually I would create a new variable to store the sum values and iterate through the array incrementing sum, like this:
         </p>
-        <code>
-          array = [1, 2, 3, 4]<br>
-          sum = 0<br>
-          array.each { |num| sum += num }<br>
-          sum<br>
+        <pre><code>
+          array = [1, 2, 3, 4]
+          sum = 0
+          array.each { |num| sum += num }
+          sum
           => 10
-        </code>
+        </code></pre>
         <p>
           Not bad. Here's how #inject handles it:
         </p>
-        <code>
-          array = [1, 2, 3, 4]<br>
-          array.inject { |memo, element| memo + element }<br>
+        <pre><code>
+          array = [1, 2, 3, 4]
+          array.inject { |memo, element| memo + element }
           => 10
-        </code>
+        </code></pre>
         <p>
           We didn't even bother with the placeholder variable. It's built in to #inject - that was the <code>memo</code> argument in the block. Let's break that down:
         </p>
@@ -60,32 +60,32 @@
         <p>
           So why didn't <code>memo</code> do anything on the first loop through that block? There was no previous value stored because the loop hadn't run yet. It defaults to storing the first value then using it starting on the second pass. But want if you want it to have a value? Turns out #inject accepts an optional argument before it runs a code block:
         </p>
-        <code>
-          (3..6).inject(2) { |memo, num| memo * num }<br>
+        <pre><code>
+          (3..6).inject(2) { |memo, num| memo * num }
           => 720
-        </code>
+        </code></pre>
         <p>
           So here the code block was supplied with a starting value for <code>memo</code>, so starting with the first loop, it applied <code>2</code>. Instead of multiplying 3 * 4 * 5 * 6 it started with <code>memo * num</code> being 2 * 3. After the first loop runs, <code>memo</code> is now 6 instead of just 3. I want to point out 2 things: first, that this time we called #inject on a range instead of an array (totally fine), and second, the code block isn't running <code>memo *= num</code>, it's <code>memo * num</code>. That's because you don't need to explicitly reassign a value to the placeholder - it's built in to the function.
         </p>
         <p>
           I want to end with a method I wrote for a challenge last week that takes an array of strings and returns the shortest string:
         </p>
-        <code>
-          def shortest_string(list_of_words)<br>
-            shortest = list_of_words[0]<br>
-            list_of_words.each do |word|<br>
-            if word.length &#60; shortest.length<br>
-              shortest = word<br>
-            end<br>
-            shortest<br>
-          end<br>
-        </code>
-        <p>What does #inject have to say about that?</p>
-        <code>
-          def shortest_string(list_of_words)<br>
-            list_of_words.inject { |shortest, word| word.length &#60; shortest.length ? word : shortest }<br>
+        <pre><code>
+          def shortest_string(list_of_words)
+            shortest = list_of_words[0]
+            list_of_words.each do |word|
+            if word.length &#60; shortest.length
+              shortest = word
+            end
+            shortest
           end
-        </code>
+        </code></pre>
+        <p>What does #inject have to say about that?</p>
+        <pre><code>
+          def shortest_string(list_of_words)
+            list_of_words.inject { |shortest, word| word.length &#60; shortest.length ? word : shortest }
+          end
+        </code></pre>
         <p>
           When I figured this out I was like
         </p>
