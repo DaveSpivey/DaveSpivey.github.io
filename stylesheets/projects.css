@@ -1,0 +1,70 @@
+header {
+  position: relative;
+  display: block;
+}
+
+header h1 {
+  font-family: Verdana, sans-serif;
+  font-size: 2.4em;
+  font-weight: lighter;
+  letter-spacing: 0.3em;
+  margin: 1em 0 1em 2em;
+}
+
+.content {
+  position: relative;
+  display: block;
+  width: 70%;
+  margin: 1em 15% 1em 15%;
+  height: 18em;
+  font-size: 1.4em;
+  line-height: 125%;
+  font-family: Verdana, sans-serif;
+  color: #fff;
+}
+
+#left-column {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  width: 48%;
+  background-color: #679997;
+  float: left;
+}
+
+#right-column {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  width: 48%;
+  background-color: #679997;
+  float: right;
+}
+
+.content a {
+  font-size: 1.3em;
+  font-weight: lighter;
+  letter-spacing: 0.1em;
+}
+
+.project {
+  margin: 1em 2em 4em 1em;
+}
+
+footer ul {
+  display: inline-block;
+  position: relative;
+  list-style-type: none;
+  top: 1em;
+}
+
+.foot-link a {
+  display: inline-block;
+  font-family: Verdana, sans-serif;
+  width: 160px;
+  font-size: 1.8em;
+}
+
+.foot-link {
+  display: inline-block;
+}
