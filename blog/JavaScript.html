@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Classes vs. Constructors</title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/blog.css">
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li class="name">Dave Spivey</li>
+        <li class="navigation"><a href="../index.html">Home</a></li>
+        <li class="navigation"><a href="index.html">More Blogs</a></li>
+        <li class="navigation"><a href="../projects/index.html">Projects</a></li>
+        <li class="navigation"><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <main class="post">
+        <h1>Classes vs. Constructors</h1>
+        <h3>Metaobjects in Ruby and JavaScript</h3>
+        <p>
+          We've been spending the last few weeks taking the first steps in harnessing the power of object-oriented programming, and in Ruby the key to orienting those objects is the concept of "class". This is the mold in which a developer defines a set of characteristics, including values, states and functions that are all bundled into the notion of what it means to be an object of said class. Any new instance of your class will take on these characteristics, and in doing so will give the programmer power and efficiency that wouldn't be possible with loads of disconnected code.
+        </p>
+        <p>
+          It turns out JavaScript has similar built-in functionality in the form of the "prototype", which is built using a "constructor" function. This has key differences from a Ruby class, mostly philosophical from a beginner's perspective, but exists for essentially the same purpose. Class and prototype are both examples of a larger concept...
+        </p>
+        <p>
+          metaobjects!
+        </p>
+        <p>
+          ...which are any objects designed to describe or define other objects. That seems pretty straightforward. Let's meet a couple of these now.
+        </p>
+        <p>
+          Ruby:
+        </p>
+        <pre><code>
+          class Immortal
+
+            def initialize(name, power, era_of_origin)
+              @name = name
+              @power = power
+              @era = era_of_origin
+              @life_expectancy = Float::INFINITY
+              @head = true
+            end
+
+            def behead(inferior_immortal)
+              if inferior_immortal.head?
+                inferior_immortal.head = false
+                @power += inferior_immortal.power
+              end
+            end
+          end
+        </code></pre>
+        <p>
+          With this class, a new instance can be created like this:
+        </p>
+        <pre><code>
+          highlander = Immortal.new("Connor MacLeod", amassed_power, "16th Century Scotland")
+        </code></pre>
+        <p>
+          Our new object <code>highlander</code> is now defined by our class, so like all Immortals, its <code>life_expectancy</code> is <code>Float::INFINITY</code> and it has a method for <code>behead</code>. Not bad - let's see this in JS.
+        </p>
+        <p>JavaScript:</p>
+        <pre><code>
+          function immortal(name, power, eraOfOrigin) {
+            this.name = name;
+            this.power = power;
+            this.era = eraOfOrigin;
+            this.lifeExpectancy = Infinity;
+            this.head = true;
+
+            this.behead = function(inferiorImmortal) {
+              if(inferiorImmortal.head === true) {
+                inferiorImmortal.head = false;
+                this.power += inferiorImmortal.power;
+              }
+            }
+          }
+        </code></pre>
+        <p>
+          Turns out these are pretty similar. Once again, let's make a new object that abides by this blueprint:
+        </p>
+        <pre><code>
+          var highlander = new immortal("Connor MacLeod", amassedPower, "16th Century Scotland");
+        </code></pre>
+        <p>
+          Essentially the same as Ruby. Most of the syntax differences are consistent with general language translation, but two are noteworthy. First, the instance variables have different notation. In Ruby anything defined like <code>@variable</code> holds meaning throughout the class definition and is accessible by an instance of the class. In JS, they're defined with <code>this.variable</code>. <code>this</code> can be thought of as referring to "this instance" for each new object created of the class.
+        </p>
+        <p>
+          Second, whereas we had a method for <code>initialize</code> in the Ruby class, our JavaScript constructor handled these steps right away. Any time an object is created, whether you've created a custom class for it or not, it goes through an initialization procedure, which attaches any values or methods to it at its inception. Notice that the JS constructor begins defining the prototype with <code>function immortal()</code> - while Ruby names a class with a title and then has a neatly contained <code>initialize</code> method. But the difference is purely syntactical, because both metaobjects run an initialization as the first step in instatiation.
+        </p>
+        <p>
+          How about something that actually matters then? JavaScript has a way to append a function to the prototype outside the constructor:
+        </p>
+        <pre><code>
+          immortal.prototype.quickening = function(immortalsArray) {
+            if(immortalsArray.length === 1) {
+              this.knowAllHumanityThoughts = true;
+            }
+          }
+        </code></pre>
+        <p>
+          Just got a sweet new ability! This will apply to all new instances of the prototype.
+        </p>
+        <p>
+          The biggest difference between these two metaobjects is one that's not apparent in normal surface interactions in the code. The way in which they are defined under the hood is fundamentally different for Ruby and Javascript. We'll start with Ruby.
+        </p>
+        <p>
+          Because "every thing in Ruby is an object" it can be hard to pick apart how objects interact with one another. Classes are objects themselves, and a class like our <code>Immortal</code> is an instance of the class <code>Class</code>. So if <code>highlander</code> is an instance of class <code>Immortal</code>, <code>Class</code> is its "superclass". It keeps going too:
+        </p>
+        <pre><code>
+          p Immortal.ancestors
+          => [Immortal, Object, PP::ObjectMixin, Kernel, BasicObject]
+        </code></pre>
+        <p>
+          This hierarchy follows the Ruby "object model" and gives order to the definition of each subclass. <code>Kernel</code> inherits its properties from <code>BasicObject</code> and so on down the list to <code>Immortal</code>. We can see this in action by listing methods available to our instance:
+        </p>
+        <pre><code>
+          p highlander.methods
+          => [:behead, :pry, :__binding__, :pretty_print, :pretty_print_cycle,
+          :pretty_print_instance_variables, :pretty_print_inspect, :nil?, :===, :=~, :!~,
+          :eql?, :hash, :&#60;=&#62;, :class, :singleton_class, :clone, :dup, :itself, :taint,
+          :tainted?, :untaint, :untrust, :untrusted?, :trust, :freeze, :frozen?, :to_s,
+          :inspect, :methods, :singleton_methods, :protected_methods, :private_methods,
+          :public_methods, :instance_variables, :instance_variable_get,
+          :instance_variable_set, :instance_variable_defined?, :remove_instance_variable,
+          :instance_of?, :kind_of?, :is_a?, :tap, :send, :public_send, :respond_to?,
+          :extend, :at_exit, :display, :require, :method, :public_method, :singleton_method,
+          :define_singleton_method, :object_id, :to_enum, :enum_for, :pretty_inspect, :==,
+          :equal?, :!, :!=, :instance_eval, :instance_exec, :__send__, :__id__]
+        </code></pre>
+        <p>
+          waaaaaaay too much information, and I apologize. But the point is this is how Ruby is dealing with each object through that object's class structure. Javascript objects are conceptually different from their inception. A JS object isn't instantiated with an internal state bundled up with attributes from a legacy of superclass ancestors. When <code>highlander</code> was initialized, it had one function: <code>behead</code>. And then we gave it another using prototype notation: <code>quickening</code>.
+        </p>
+        <p>
+          It probably doesn't seem like a big deal to Connor MacLeod of clan MacLeod whether or not he has access to <code>:pretty_print</code> (though <code>:taint</code> and <code>:untrust</code> seem ominously useful). But even if the ramifications seem vague to me at this point in my understanding of the two languages, an idea of how different the fundamental structures of the way they approach object-oriented programming will be important to keep in mind as we dive deeper in the coming months.
+        </p>
+    </main>
+    <footer>
+      <ul>
+        <li class="foot-link"><a href="../index.html">Home</a></li>
+        <li class="foot-link"><a href="index.html">More Blogs</a></li>
+      </ul>
+    <div>
+      <a href="https://www.linkedin.com/in/dave-spivey-164213b2"><img src="../imgs/linkedin_button.png"></a>
+      <a href="https://github.com/DaveSpivey"><img src="../imgs/github_button.png"></a>
+    </div>
+  </footer>
+  </body>
+</html>
