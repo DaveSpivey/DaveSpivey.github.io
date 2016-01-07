@@ -86,8 +86,57 @@
           <p>p array.reject! {|x| x == "b"}</p>
           <p>=> ["a","c","d"]</p>
           <p> </p>
+          <h4>.insert(idx, obj)</h4>
+          <p>array.insert(2, "z")</p>
+          <p>=> ['a', 'b', 'z', 'c', 'd']</p>
+          <p> </p><p> </p><p> </p>
+          <h4>.push</h4>
+          <p>p array.push("e")</p>
+          <p>=> ["a", "b", "c", "d", "e"]</p>
+          <p> </p><p> </p><p> </p>
+          <h4>.pop</h4>
+          <p>p array.pop</p>
+          <p>=> d</p>
+          <p>p array => ["a", "b", "c"]</p>
+          <h4>.shift</h4>
+          <p>p array.shift</p>
+          <p>=> a</p>
+          <h4>.unshift</h4>
+          <p>p array.unshift("$")</p>
+          <p>=> ["$", "a", "b", "c", "d"]</p>
+          <p> </p><p> </p>
+        </section>
+        <section class="strings">
+          <h3>-String-Specific-</h3>
+          <h5>string = "Das Bootcamp"</h5>
+          <h4>.downcase</h4>
+          <p>p string.downcase</p>
+          <p>=> das bootcamp</p>
+          <h4>.upcase</h4>
+          <p>p string.upcase</p>
+          <p>=> DAS BOOTCAMP</p>
+          <h4>.ord</h4>
+          <p>p string[0].ord</p>
+          <p>=> 68</p>
+          <h4>.chr</h4>
+          <p>return 65.chr, 66.chr, 67.chr</p>
+          <p>=> ["A", "B", "C"]</p>
+          <h4>.sub</h4>
+          <p>p string.sub(/boot/i, "Shoe")</p>
+          <p>=> Das Shoecamp</p>
+          <p>p "LalaLand".gsub(/la/i, "ba")</p>
+          <p>=> bababand  // i - case insensitive</p>
         </section>
       </article>
+
+
+
+
+      <!-- ################ JAVASCRIPT ################### -->
+
+
+
+
       <article id="right-column">
         <h1>JavaScript</h1>
         <section class="iteration">
@@ -151,6 +200,51 @@
           <p>var index = array.indexOf("b");</p>
           <p>delete array[index];</p>
           <p>=> ["a", , "c", "d"]</p>
+          <h4>.splice(idx, #removed, insertValue)</h4>
+          <p>var anyRemoved = array.splice(2, 0, "z");</p>
+          <p>=> console.log(array);</p>
+          <p>['a', 'b', 'z', 'c', 'd']</p>
+          <p>console.log(anyRemoved);</p>
+          <p>=> []</p>
+          <h4>.push()</h4>
+          <p>var pushedArray = (array.push("e"));</p>
+          <p>console.log(pushedArray);</p>
+          <p>=> 5  // new length of array</p>
+          <p>console.log(array);</p>
+          <p>=> ['a', 'b', 'c', 'd', 'e']</p>
+          <h4>.pop()</h4>
+          <p>console.log(array.pop());</p>
+          <p>=> d</p>
+          <p>console.log(array); => ["a", "b", "c"]</p>
+          <h4>.shift()</h4>
+          <p>console.log(array.shift());</p>
+          <p>=> a</p>
+          <h4>.unshift()</h4>
+          <p>console.log(array.unshift("$"));</p>
+          <p>=> 5  // new length of array</p>
+          <p>console.log(array);</p>
+          <p>=> ["$", "a", "b", "c", "d"]</p>
+        </section>
+        <section class="strings">
+          <h3>-String-Specific-</h3>
+          <h5>var string = "Das Bootcamp";</h5>
+          <h4>.toLowerCase()</h4>
+          <p>console.log(string.toLowerCase());</p>
+          <p>=> das bootcamp</p>
+          <h4>.toUpperCase()</h4>
+          <p>console.log(string.toUpperCase());</p>
+          <p>=> DAS BOOTCAMP</p>
+          <h4>.charCodeAt()</h4>
+          <p>console.log(string.charCodeAt(0));</p>
+          <p>=> 68</p>
+          <h4>.fromCharCode()</h4>
+          <p>console.log(String.fromCharCode(65, 66, 67));</p>
+          <p>=> ABC</p>
+          <h4>.replace(/regex/gim, newSubString)</h4>
+          <p>console.log(string.replace(/boot/i, "Shoe"));</p>
+          <p>=> Das Shoecamp</p>
+          <p>// flags: i - ignore case, g - global match,</p>
+          <p>// m - match over multiple lines</p>
         </section>
       </article>
     </main>
