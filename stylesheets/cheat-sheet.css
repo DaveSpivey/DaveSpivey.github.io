@@ -1,0 +1,42 @@
+header h1 {
+  text-align: center;
+  margin-left: 0;
+}
+
+#cheatsheet-content {
+  width: 86%;
+  height: auto;
+  margin: 1em 7% 1em 7%;
+}
+
+#cheatsheet-content h1 {
+  font-size: 1.8em;
+  margin-left: 1em;
+}
+
+#cheatsheet-content h3 {
+  text-align: center;
+  margin-top: 3em;
+  font-size: 1.2em;
+}
+
+#cheatsheet-content h4 {
+  margin-top: 2em;
+  margin-left: 2em;
+}
+
+#cheatsheet-content h5 {
+  margin-left: 1em;
+}
+
+#cheatsheet-content p {
+  width: auto;
+  background-color: #cdd;
+  color: black;
+  font-family: Consolas,Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New;
+  font-size: 0.7em;
+  white-space: pre-wrap;
+  margin-left: 1em;
+  margin-right: 1em;
+  padding-left: 0.5em;
+}
