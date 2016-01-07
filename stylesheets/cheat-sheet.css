@@ -16,7 +16,7 @@ header h1 {
 
 #cheatsheet-content h3 {
   text-align: center;
-  margin-top: 3em;
+  margin-top: 2em;
   font-size: 1.2em;
 }
 
@@ -39,4 +39,29 @@ header h1 {
   margin-left: 1em;
   margin-right: 1em;
   padding-left: 0.5em;
+}
+
+.iteration {
+  background-color: #6799a7;
+  border: solid black 1px;
+}
+
+.select {
+  background-color: #6799b7;
+  border: solid black 1px;
+}
+
+.order {
+  background-color: #6799c7;
+  border: solid black 1px;
+}
+
+.modification {
+  background-color: #6799d7;
+  border: solid black 1px;
+}
+
+.strings {
+  background-color: #6799e7;
+  border: solid black 1px;
 }
