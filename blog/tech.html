@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Regular Expressions</title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/blog.css">
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li class="name">Dave Spivey</li>
+        <li class="navigation"><a href="../index.html">Home</a></li>
+        <li class="navigation"><a href="index.html">More Blogs</a></li>
+        <li class="navigation"><a href="../projects/index.html">Projects</a></li>
+        <li class="navigation"><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <main class="post">
+        <h1>Regular Expressions</h1>
+        <p>
+          At some point in your doc and forum spelunking you've probably run into something like this:
+        </p>
+        <pre><code>
+          \b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b
+        </code></pre>
+        <p>
+          Whether that filled you with hacker awe or made you throw up a little in your mouth, you've undoubtedly lusted for its power. If web wrangling is what we're after - and not just building text-based adventure games to run in Terminal - we'll need the raw searchiness it offers, because the web is built one character at a time. Regular expressions are a way to get at the good stuff with no nonsense.
+        </p>
+        <p>
+          What do they do? A regex is for searching through a string for a particular pattern. That's its only job - the rest is up to whatever code you attach, including the actual searching. Similarly to SQL, a regex provides a pattern to match, and then refines it by adding constraints. Let's start simple. Early in the Codecademy Ruby track there was an exercise that would "Daffy Duckify" a user input string. The conspicuous bit of code that was hand-waved over was this:
+        </p>
+        <pre><code>
+          if user_input.include? "s"
+            user_input.gsub!(/s/, "th")
+        </code></pre>
+        <p>
+          This is Ruby for "If the phrase includes the letter 's', substitute all the times 's' appears with 'th'".
+          Why is 's' written two ways then? <code>#String.include?</code> is defined to only accept input as a string, while <code>#String.gsub!</code> accepts either a string or a regular expression. The /slashes/ on either side of the 's' are Ruby's syntax for delimiting regexes, leaving the only pattern to be searched out <code>s</code>.
+        </p>
+        <p>
+          That was fun, if insulting to a certain duck's speech impediment. But a little more structure gives us cooler capabilities. How about a bit of text that we want to just melt down to alphabet letters?
+        </p>
+        <pre><code>
+          text = "Super$%!!califragil*%%:!isticexpiali$1*@##!docious!"
+        </code></pre>
+        <p>
+          That is one surly Julie Andrews. We can make her more pleasant with a regex:
+        </p>
+        <pre><code>
+          p text.scan(/[a-z]/i).join('')
+          => "Supercalifragilisticexpialidocious"
+        </code></pre>
+        <p>
+          Lovely. #String.scan accepts a regex and returns an array containing all matching characters as individual elements, which we then <code>.join('')</code> together into a new string. We recognize <code>/[a-z]/</code> as being the regex, because in Ruby the syntax is to place the pattern between two slashes. So why brackets now?
+        </p>
+        <p>
+          Brackets have special meaning in regular expressions and are an example of "metacharacters", which help to provide constraints on the pattern. Just as <code>/ /</code> delimits the regex, <code>[ ]</code> delimits a "character class". Any character within the character class may be matched individually, regardless of order. For example:
+        </p>
+        <pre><code>
+          p "hello there".gsub(/[aeiou]/, "#")
+          => "h#ll# th#r#"
+        </code></pre>
+        <p>
+          Ranges may be included in a character class, which saves a ton of space if you have something like the alphabet-searching code <code>/[a-z]/</code>. We missed one detail from that Mary Poppins trolling exercise, though - the <code>i</code> that followed the regex. This isn't a part of the regex itself, but is a flag that Ruby uses as its own constraint to the pattern. The <code>i</code> stands for "case-insensitive", so when any character matches <code>[a-z]</code>, regardless of case it is returned as a match. <code>i</code> also works as a flag in JavaScript - although in many cases for clarity and universality you'll see <code>/[A-Za-z]/</code> for all letters, case-insensitive, or even <code>/[A-Za-z0-9]/</code> for all letters and numbers. There is no spacing or punctuation between ranges within a character class.
+        </p>
+        <p>
+          These are great shortcuts, but programmers like to make shortcuts shorter, so we also have a library of single character escape codes that represent these larger patterns, like so:
+        </p>
+        <pre><code>
+          \w == [A-Za-z0-9_]  ## alphanumeric characters plus "_"
+          \d == [0-9]         ## digits
+          \s == [ \t\r\n\v\f] ## all whitespace characters
+        </code></pre>
+        <p>
+          So this is obviously pretty great, but is only the beginning of the search party. There's way more out there to hone in on ultra-efficient, ultra-specific pattern recognition, but hopefully this post is enough to get a start on reading and using some basic regular expressions.
+        </p>
+        <img src="../imgs/bobafett.gif" alt="Boba Fett scanning">
+        <p>Regex will find you</p>
+    </main>
+    <footer>
+      <ul>
+        <li class="foot-link"><a href="../index.html">Home</a></li>
+        <li class="foot-link"><a href="index.html">More Blogs</a></li>
+      </ul>
+    <div>
+      <a href="https://www.linkedin.com/in/dave-spivey-164213b2"><img src="../imgs/linkedin_button.png"></a>
+      <a href="https://github.com/DaveSpivey"><img src="../imgs/github_button.png"></a>
+    </div>
+  </footer>
+  </body>
+</html>
