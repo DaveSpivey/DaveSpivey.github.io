@@ -126,6 +126,11 @@
           <p>=> Das Shoecamp</p>
           <p>p "LalaLand".gsub(/la/i, "ba")</p>
           <p>=> bababand  // i - case insensitive</p>
+          <h4>.scan</h4>
+          <p>str = "We wake at 0600, dammit man!"</p>
+          <p>p str.scan(/[a-z]/i).join('')</p>
+          <p>=> Wewakeatdammitman</p>
+          <p>-OR-  p str.scan(/[A-Za-z]/).join('')</p>
         </section>
       </article>
 
@@ -245,6 +250,11 @@
           <p>=> Das Shoecamp</p>
           <p>// flags: i - ignore case, g - global match,</p>
           <p>// m - match over multiple lines</p>
+          <h4>.match()</h4>
+          <p>var str = "We wake at 0600, dammit man!";</p>
+          <p>var newStr = str.match(/[a-z]/gi).join('');</p>
+          <p>console.log(newStr);</p>
+          <p>=> Wewakeatdammitman</p>
         </section>
       </article>
     </main>
