@@ -7,6 +7,15 @@ header h1 {
   width: 86%;
   height: auto;
   margin: 1em 7% 1em 7%;
+  color: #fff;
+}
+
+#left-column {
+  background-color: #357795;
+}
+
+#right-column {
+  background-color: #357795;
 }
 
 #cheatsheet-content h1 {
@@ -31,10 +40,10 @@ header h1 {
 
 #cheatsheet-content p {
   width: auto;
-  background-color: #cdd;
+  background-color: #ccd;
   color: black;
   font-family: Consolas,Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New;
-  font-size: 0.7em;
+  font-size: 0.8em;
   white-space: pre-wrap;
   margin-left: 1em;
   margin-right: 1em;

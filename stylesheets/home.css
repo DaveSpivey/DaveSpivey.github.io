@@ -1,0 +1,65 @@
+body {
+  background-color: black;
+}
+
+#wrapper {
+  margin: 1% 6% 0 6%;
+}
+
+#images {
+  position: relative;
+  float: left;
+  display: inline-block;
+  margin-top: 1em;
+  margin-bottom: 2em;
+  max-width: 50%;
+}
+
+#sun {
+  width: 25%;
+  height: auto;
+}
+
+#gator {
+  width: 80%;
+  height: auto;
+  margin: -2em 0 0 18%;
+}
+
+#headlines {
+  position: absolute;
+  right: 0;
+  max-width: 40%;
+  margin-right: 10%;
+  margin-top: 3em;
+  height: auto;
+  font-family: Verdana, sans-serif;
+  color: #fff;
+}
+
+#headlines h2 {
+  letter-spacing: 20px;
+  font-size: 2.2em;
+  font-weight: lighter;
+}
+
+#headlines h4 {
+  letter-spacing: 7px;
+  font-weight: bolder;
+  font-size: 1.4em;
+  margin-top: -1em;
+}
+
+#waves {
+  display: inline-block;
+  clear: both;
+  width: 100%;
+}
+
+#wave {
+  float: left;
+}
+
+#flip {
+  float: right;
+}
