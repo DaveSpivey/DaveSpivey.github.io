@@ -3,12 +3,12 @@
     text-align: center;
     padding-top: 6px;
     font-family: arial, sans-serif;
-    width: 100px;
+    width: 8%;
     height: 24px;
     border-radius: 5px;
     border: 1px solid black;
     box-shadow: 2px 3px 2px #666;
-    margin: auto;
+    margin: 1em 46% 0 46%;
 }
 
 .hover {
