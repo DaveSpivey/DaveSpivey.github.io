@@ -2,7 +2,7 @@ article {
   position: relative;
   display: inline-block;
   width: 45%;
-  margin: 0 4em 0 4em;
+  margin: 0 4em 5em 4em;
   float: left;
 }
 
@@ -34,15 +34,20 @@ article p {
   position: absolute;
   display: inline-block;
   float: right;
+  height: 90%;
 }
 
 .profile img {
+  position: relative;
   display: inline-block;
-  max-width: 100%;
-  height: auto;
+  right: -0.6em;
+  /*max-width: 100%;*/
+  /*height: auto;*/
+  max-height: 96%;
+  max-width: auto;
 }
 
 footer {
   position: absolute;
-  top: 90%;
+  top: 92%;
 }
