@@ -40,6 +40,18 @@ header {
   /*font-family: Verdana, sans-serif;*/
 }
 
+.famblog img {
+  max-width: 100%;
+  max-height: 30em;
+}
+
+.portrait {
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  margin: 5em 0 5em 0;
+}
+
 pre {
   width: auto;
   background-color: #eae4ec;
