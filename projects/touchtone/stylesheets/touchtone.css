@@ -1,0 +1,79 @@
+body {
+  background-color: #444;
+}
+
+header {
+  text-align: center;
+  margin: 0;
+}
+
+@font-face {
+  font-family: StarAvenue;
+  src: url(fonts/staravenue.ttf);
+}
+
+h1 {
+  color: #aaa;
+  font-family: StarAvenue;
+  font-size: 2.5em;
+  letter-spacing: 4px;
+  margin: 0.3em;
+}
+
+main {
+  width: 100%;
+  height: 40em;
+  text-align: center;
+}
+
+section {
+  display: inline-block;
+  text-align: center;
+}
+
+aside {
+  margin: 1em;
+  display: inline-block;
+  float: right;
+}
+
+.detail {
+  margin: 0;
+  font-family: StarAvenue;
+  font-size: 1.2em;
+  color: #fff;
+  letter-spacing: 3px;
+}
+
+button {
+  width: 6em;
+  height: 2em;
+  margin: 1em 1em 0 1em;
+  background-color: #aaa;
+  border: solid black 1px;
+  font-family: StarAvenue;
+  font-size: 1.3em;
+  display: inline-block;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+svg {
+  border: solid black 2px;
+  background-color: #fff;
+}
+
+rect {
+  fill: #333366;
+  opacity: 0.3;
+}
+
+circle:hover {
+  cursor: pointer;
+}
+
+.background {
+  opacity: 0.4;
+}
