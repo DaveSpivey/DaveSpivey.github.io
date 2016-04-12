@@ -14,9 +14,15 @@ function getLevel() {
   return currentLevel;
 }
 
-activeVoices = {};
+if ( /iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+  isUnlocked = false;
+} else {
+  isUnlocked = true;
+}
 
 function playChord() {
+  if (isUnlocked == false) { unlockIos() };
+
   var node = $(this).attr('id');
   flash(node);
 
@@ -31,7 +37,6 @@ function playChord() {
   $('#chord').html('chord: ' + displayChord);
   chord.forEach(function(note) {
     var voice = new Voice(pitches[note]);
-    activeVoices[note] = voice;
     voice.start();
 
     setTimeout(function() {
@@ -40,30 +45,17 @@ function playChord() {
   })
 }
 
-// function startMajor() {
-//   var chord = getChord(major);
-//   chord.forEach(function(note) {
-//     var voice = new Voice(pitches[note]);
-//     activeVoices[note] = voice;
-//     voice.start();
-//   })
-// }
+function unlockIos() {
+  var buffer = context.createBuffer(1, 1, 22050);
+  var source = context.createBufferSource();
+  source.buffer = buffer;
+  source.connect(context.destination);
 
-// function startMinor() {
-//   var chord = getChord(minor);
-//   chord.forEach(function(note) {
-//     var voice = new Voice(pitches[note]);
-//     activeVoices[note] = voice;
-//     voice.start();
-//   })
-// }
+  source.start(0);
+  isUnlocked = true;
 
-// function stop() {
-//   for (var note in activeVoices) {
-//     activeVoices[note].stop();
-//     delete activeVoices[note];
-//   }
-// }
+  setTimeout(function() {playChord()}, 100);
+}
 
 function darken() {
   var level = getLevel();
@@ -197,10 +189,6 @@ var Voice = (function(context) {
 
     vco.oscillator.start(0);
     envelope.trigger();
-
-    // setInterval(function(){
-    //   console.log(vca.gain.gain.value)
-    // }, 500);
 
     this.oscillators.push(vco);
 

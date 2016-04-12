@@ -63,6 +63,8 @@ button:hover {
 svg {
   border: solid black 2px;
   background-color: #fff;
+  background: url(../images/branches-fade.png);
+  background-size: cover;
 }
 
 rect {
