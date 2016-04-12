@@ -16,11 +16,11 @@ var svg = d3.select('main').append('svg')
   .attr('width', width)
   .attr('height', height);
 
-svg.append('image')
-  .attr('xlink:href','images/tree-branches.png')
-  .attr('width', width)
-  .attr('height', height)
-  .attr('class', 'background');
+// svg.append('image')
+//   .attr('xlink:href','images/tree-branches.png')
+//   .attr('width', width)
+//   .attr('height', height)
+//   .attr('class', 'background');
 
 svg.append('rect')
   .attr('width', width)
