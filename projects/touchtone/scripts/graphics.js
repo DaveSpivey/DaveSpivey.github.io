@@ -42,8 +42,8 @@ for (var i = 0; i < nodeNum; i++) {
 function newPosition(left, top) {
   var leftPos = parseInt(left, 10);
   var topPos = parseInt(top, 10);
-  var newLeft = Math.floor(Math.random() * 9.5) + leftPos - 4;
-  var newTop = Math.floor(Math.random() * 9.5) + topPos - 4;
+  var newLeft = Math.floor(Math.random() * 9.8) + leftPos - 4;
+  var newTop = Math.floor(Math.random() * 9.8) + topPos - 4;
   if (newLeft > radius && newTop > radius) {
     return [newLeft, newTop];
   } else {
