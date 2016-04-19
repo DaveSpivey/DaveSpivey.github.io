@@ -7,20 +7,13 @@ var width = window.innerWidth * w
 var height = window.innerHeight * h
 || document.documentElement.clientHeight * h
 || document.body.clientHeight * h;
-// var width = innerWidth * 0.92;
-// var height = innerHeight * 0.8;
 var radius = 35;
-var nodeNum = 18;
+var nodeNum = 16;
+
 
 var svg = d3.select('main').append('svg')
   .attr('width', width)
   .attr('height', height);
-
-// svg.append('image')
-//   .attr('xlink:href','images/tree-branches.png')
-//   .attr('width', width)
-//   .attr('height', height)
-//   .attr('class', 'background');
 
 svg.append('rect')
   .attr('width', width)
@@ -52,7 +45,7 @@ function newPosition(left, top) {
 }
 
 function moveNodes() {
-  var duration = 300;
+  var duration = 350;
   d3.selectAll('.node').each(function(d,i) {
     var node = d3.select(this);
     var left = node.attr('cx');

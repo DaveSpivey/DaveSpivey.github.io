@@ -66,8 +66,7 @@ button:hover {
 
 svg {
   border: solid black 2px;
-  background-color: #fff;
-  background: url(../images/branches-fade.png);
+  background: url(../images/fade-branches1.jpg);
   background-size: cover;
 }
 
@@ -80,6 +79,3 @@ circle:hover {
   cursor: pointer;
 }
 
-.background {
-  opacity: 0.4;
-}
