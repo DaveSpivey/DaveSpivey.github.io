@@ -3,7 +3,8 @@ $(document).ready(function(){
   // unlock audio events for iOS
   if ( /iPhone|iPad|iPod/i.test(navigator.userAgent)) {
     isUnlocked = false;
-    $('.node').on('touchend', unlockIos);
+    $('#unlock').css('display', 'inline-block');
+    $('#unlock').on('touchend', unlockIos);
   } else {
     isUnlocked = true;
   }
@@ -22,6 +23,7 @@ function getLevel() {
 }
 
 function playChord() {
+  console.log(isUnlocked);
   var node = $(this).attr('id');
   flash(node);
 
@@ -52,8 +54,8 @@ function unlockIos() {
 
   source.start(0);
   isUnlocked = true;
-
-  setTimeout(function() { playChord }, 100);
+  $('#unlock').css('display', 'none');
+  // setTimeout(function() { playChord }, 100);
 }
 
 function darken() {
@@ -201,4 +203,3 @@ var Voice = (function(context) {
 
   return Voice;
 })(context);
-
