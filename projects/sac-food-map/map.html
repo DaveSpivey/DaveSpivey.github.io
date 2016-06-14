@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #filters {
+        display: inline-block;
+        position: relative;
+        bottom: 30em;
+        left: 2em;
+        width: 20%;
+      }
+      #map {
+        display: inline-block;
+        height: 100%;
+        width: 70%;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src='promise_zone.json'></script>
+    <script src='schedule.json'></script>
+</head>
+<body>
+  <div id="filters">
+    <h4>Availability by day</h4>
+    <form id="day-filter">
+      <input class="checkbox-day" type="checkbox" value="M"> Monday<br>
+      <input class="checkbox-day" type="checkbox" value="T"> Tuesday<br>
+      <input class="checkbox-day" type="checkbox" value="W"> Wednesday<br>
+      <input class="checkbox-day" type="checkbox" value="TH"> Thursday<br>
+      <input class="checkbox-day" type="checkbox" value="F"> Friday<br>
+      <input class="checkbox-day" type="checkbox" value="S"> Saturday<br>
+      <input class="checkbox-day" type="checkbox" value="SU"> Sunday<br>
+    </form>
+  </div>
+  <a href="schedule.json" style="float: left;">Get JSON</a>
+  <div id="map"></div>
+
+  <script src='app.js'></script>
+  <script src='http://maps.google.com/maps/api/js?sensor=false&callback=initMap'>
+  </script>
+</body>
+</html>
