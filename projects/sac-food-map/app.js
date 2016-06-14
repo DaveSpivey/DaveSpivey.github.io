@@ -92,6 +92,9 @@ function findDay(day) {
 }
 
 function convertTime(time) {
+  if (time == "-") {
+    return "(not listed)";
+  }
   var time = time.toString();
   if (time.length < 4) {
     time = "0" + time;
